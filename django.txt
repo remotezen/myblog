@@ -1,0 +1,45 @@
+#activate environment
+source web/bin/activate
+<environment>/bin/activate
+##New Django project
+
+django-admin startproject blog .
+
+#settings.py
+++++setup database
+python manage.py migrate
+
+
+#Start Server
+python manage.py runserver
+
+
+#create the application
++++ python manage.py startapp myblog
+
+#Place in settings.py
+
+ISTALLED_APPS(
+	myblog, ---don't forget the comma
+
+		)
+#Register models in blog/admin.py
+as below
+
+#create an admin user
+python manage.py createsuperuser
+
+from .models import Post
+admin.site.register(Post)
+ 
+rollback
++++
+
+python manage.py migrate myblog zero
+
+migrate
++++
+python manage.py migrate myblog zero
+
+
+
